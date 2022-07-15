@@ -4,13 +4,12 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import Theme from './components/Theme';
-// import About from './components/About';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import About from './components/About';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
 
@@ -67,7 +66,7 @@ function App() {
 
   return (
     <>
-    {/* <Router> */}
+    <Router>
 
       <Navbar title="TextUtils" homepage="Home" currMode={mode} toggleMode={toggleMode} currTheme={theme} />
 
@@ -76,18 +75,16 @@ function App() {
       <div className="container">
         <Alert alert={alert} />
 
-        {/* <Routes> */}
-          {/* <Route exact path="/about" element={<About />}>
-          </Route> */}
+        <Routes>
+          <Route exact path="/about" element={<About />}>
+          </Route>
 
-          {/* <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter text to Analyze:" currMode={mode} currTheme={theme} />}> */}
-          <TextForm showAlert={showAlert} heading="Enter text to Analyze:" currMode={mode} currTheme={theme} />
-          {/* </Route> */}
-        {/* </Routes> */}
+          <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter text to Analyze:" currMode={mode} currTheme={theme} />}></Route>
+        </Routes>
 
       </div>
 
-    {/* </Router> */}
+    </Router>
     </>
   );
 }
