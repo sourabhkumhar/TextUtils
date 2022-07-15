@@ -52,15 +52,15 @@ export default function TextForm(props) {
             <textarea className="form-control" style={{backgroundColor: props.currMode==='light'?'white':'black', color: props.currMode==='dark'?'white':'black'}} onChange={handleOnChange} value={text} placeholder="Enter Text Here..." rows="8" id="myBox"></textarea>
 
             <div className='my-3'>
-                <button onClick={handleUpperCase} className={`btn btn-${props.currTheme} m-1`}>Uppercase</button>
-                <button onClick={handleLowerCase} className={`btn btn-${props.currTheme} m-1`}>Lowercase</button>
-                <button onClick={handleCapitalize} className={`btn btn-${props.currTheme} m-1`}>Capitalize</button>
-                <button onClick={handleExtraSpace} className={`btn btn-${props.currTheme} m-1`}>Remove Extra Spaces</button>
+                <button disabled={text.length === 0} onClick={handleUpperCase} className={`btn btn-${props.currTheme} m-1`}>Uppercase</button>
+                <button disabled={text.length === 0} onClick={handleLowerCase} className={`btn btn-${props.currTheme} m-1`}>Lowercase</button>
+                <button disabled={text.length === 0} onClick={handleCapitalize} className={`btn btn-${props.currTheme} m-1`}>Capitalize</button>
+                <button disabled={text.length === 0} onClick={handleExtraSpace} className={`btn btn-${props.currTheme} m-1`}>Remove Extra Spaces</button>
 
-                <button onClick={reverse} className={`btn btn-${props.currTheme} m-1`}>Reverse</button>
+                <button disabled={text.length === 0} onClick={reverse} className={`btn btn-${props.currTheme} m-1`}>Reverse</button>
 
-                <button onClick={clear} className={`btn btn-${props.currTheme} m-1`}>Clear</button>
-                <button onClick={copy} className={`btn btn-${props.currTheme} m-1`}>Copy</button>
+                <button disabled={text.length === 0} onClick={clear} className={`btn btn-${props.currTheme} m-1`}>Clear</button>
+                <button disabled={text.length === 0} onClick={copy} className={`btn btn-${props.currTheme} m-1`}>Copy</button>
 
                 <hr />
 
@@ -70,7 +70,7 @@ export default function TextForm(props) {
                     <p>{0.008 * (text.split(" ").filter((element) => {return element.length!==0}).length)} Minutes read</p>
 
                     <h2>Preview</h2>
-                    <p>{text}</p>
+                    <p>{text.length === 0?'Write some thing... Nothing to Preview...':text}</p>
                 </div>
             </div>
         </div>
