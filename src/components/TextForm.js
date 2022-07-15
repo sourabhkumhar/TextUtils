@@ -42,14 +42,14 @@ export default function TextForm(props) {
         props.showAlert("Converted into Reverse Characters", "Success")
     }
 
-    const [text, setText] = useState('Enter Text Here...');
+    const [text, setText] = useState('');
     // text = "New Text";   Wrong way to change the state
     // setText("New Text"); Correct way to change the state
 
     return (
         <div className='my-3' style={{color: props.currMode==='dark'?'white':'black'}}>
             <h1>{props.heading}</h1>
-            <textarea className="form-control" style={{backgroundColor: props.currMode==='light'?'white':'black', color: props.currMode==='dark'?'white':'black'}} onChange={handleOnChange} value={text} rows="8" id="myBox"></textarea>
+            <textarea className="form-control" style={{backgroundColor: props.currMode==='light'?'white':'black', color: props.currMode==='dark'?'white':'black'}} onChange={handleOnChange} value={text} placeholder="Enter Text Here..." rows="8" id="myBox"></textarea>
 
             <div className='my-3'>
                 <button onClick={handleUpperCase} className={`btn btn-${props.currTheme} m-1`}>Uppercase</button>
